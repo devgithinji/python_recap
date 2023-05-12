@@ -1,3 +1,6 @@
+import hashlib
+import json
+
 MINING_REWARD = 10
 genesis_block = {
     'previous_hash': '',
@@ -11,7 +14,7 @@ participants = {'Max'}
 
 
 def hash_block(block):
-    return "_".join([str(block[key]) for key in block])
+    return hashlib.sha256(json.dumps(block).encode()).hexdigest()
 
 
 def get_balance(participant):
