@@ -1,13 +1,16 @@
 class Food:
+    name = 'X'
+    kind = 'Y'
+
     def __init__(self, name, kind):
         self.name = name
         self.kind = kind
 
-    def describe(self):
-        print('I am of type {} and my name is {}'.format(self.kind, self.name))
+    @classmethod
+    def describe(cls):
+        print('I am of type {} and my name is {}'.format(cls.kind, cls.name))
 
 
-banana = Food('Banana', 'fruit')
-banana.describe()
-pork = Food('Pork', 'meat')
-pork.describe()
+Food.name = 'Banana'
+Food.kind = 'Fruit'
+Food.describe()
