@@ -1,4 +1,4 @@
-import json
+import pickle
 
 running = True
 user_input_list = []
@@ -11,12 +11,11 @@ while running:
     if user_input == '1':
         data_to_store = input('Your text: ')
         user_input_list.append(data_to_store)
-        with open('assignment.txt', mode='w') as f:
-            f.write(json.dumps(user_input_list))
-            f.write("\n")
+        with open('assignment.p', mode='wb') as f:
+            f.write(pickle.dumps(user_input_list))
     elif user_input == '2':
-        with open('assignment.txt', mode='r') as f:
-            file_content =json.loads(f.read())
+        with open('assignment.p', mode='rb') as f:
+            file_content = pickle.loads(f.read())
             for line in file_content:
                 print(line)
     elif user_input == 'q':
