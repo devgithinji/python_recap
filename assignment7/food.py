@@ -1,14 +1,37 @@
 class Food:
-    name = 'X'
-    kind = 'Y'
 
-    # def __init__(self, name, kind):
-    #     self.name = name
-    #     self.kind = kind
+    def __init__(self, name, kind):
+        self.name = name
+        self.kind = kind
 
-    @staticmethod
-    def describe(kind, name):
-        print('I am of type {} and my name is {}'.format(kind, name))
+    def __repr__(self):
+        return 'Name: {}, Kind: {}'.format(self.name, self.kind)
+
+    def describe(self):
+        print('I am of type {} and my name is {}'.format(self.kind, self.name))
 
 
-Food.describe('Fruit', 'Banana')
+class Meat(Food):
+
+    def __init__(self, name):
+        super().__init__(name, 'Meat')
+
+    def cook(self):
+        print('i am cooking')
+
+
+class Fruit(Food):
+    def __init__(self, name):
+        super().__init__(name, 'Fruit')
+
+    def clean(self):
+        print('I am cleaning')
+
+
+banana = Fruit('Banana')
+banana.clean()
+print(banana)
+
+pork = Meat('Pork')
+pork.cook()
+print(pork)
