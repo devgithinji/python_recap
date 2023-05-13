@@ -1,5 +1,1 @@
-second line
-dennis githinji
-am in limuru
-dennis githinji
-paul githinji
+["kamau", "dennis"]
